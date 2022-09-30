@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 
 var MobileSchema = mongoose.Schema({
-  _id: String,
   name: String,
   brand: String,
 });
