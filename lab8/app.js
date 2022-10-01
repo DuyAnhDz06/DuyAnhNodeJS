@@ -5,7 +5,7 @@ const path = require("path");
 
 const mongoose = require("mongoose");
 const studentModel = require("./models/StudentSchema");
-const url = "mongodb://localhost:27017/greenwich";
+const url = "mongodb+srv://duyanhdz:123456daica@cluster0.kqbu68q.mongodb.net/";
 mongoose.connect(url, { useNewUrlParser: true }, (err) => {
   if (err) {
     console.log(err);
@@ -25,15 +25,22 @@ app.get("/about", function (req, res) {
   res.render("about");
 });
 
+app.get("/student", function (req, res) {
+  res.render("student");
+});
+
 app.get("/student", (req, res) => {
+  //SQL : select * from student
   studentModel.find((err, data) => {
     if (err) {
       console.log(err);
     } else {
       //1. show dữ liệu ra console log
       //console.log(data);
-      //2. show dữ liệu ra web bằng "send"
-      res.send(data);
+      //2. show dữ liệu ra API bằng "send"
+      //res.send(data);
+      //3. show dữ liệu ra view bằng "render"
+      res.render("student", { students: data });
     }
   });
 });
