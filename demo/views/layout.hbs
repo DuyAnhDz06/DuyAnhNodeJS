@@ -23,8 +23,25 @@
      <a class="nav-link " href="https://greenwich.edu.vn/en/english/">Greenwich</a>
      <a class="nav-link " href="/student">Student</a>
      <a class="nav-link " href="/api">API</a>
+     <tr>
+      <th colspan="4">
+         <select class="form-control" onchange="window.location.href=this.value">
+            <option value="">Sort by name</option>
+            <option value="student/sort/asc">Ascending</option>
+            <option value="student/sort/desc">Descending</option>
+         </select>
+      </th>
+      <th colspan="2">
+         <form action="student/search" method="post">
+            <div class="form-group">
+               <input class="form-control" type="search" name="name" placeholder="Enter student name to search">
+            </div>
+         </form>
+      </th>
+   </tr>
    </nav>
     {{{body}}}
+    
   </body>
 
 </html>

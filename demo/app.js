@@ -8,12 +8,12 @@ var indexRouter = require('./routes/index')
 var studentRouter = require('./routes/student')
 var lecturerRouter = require('./routes/lecturer')
 
-var hbs = require('hbs');
-hbs.registerHelper('dateFormat', require('handlebars-dateformat'));
+// var cors = require('cors')
 
 var mongoose = require('mongoose')
 var url =
-  'mongodb+srv://duyanhdz:123456daica@cluster0.kqbu68q.mongodb.net/demo'
+  'mongodb://localhost:27017/demo'
+
 mongoose.connect(url, { useNewUrlParser: true }, err => {
   if (!err) {
     console.log('DB connect succeed !')
@@ -21,6 +21,10 @@ mongoose.connect(url, { useNewUrlParser: true }, err => {
     console.error(err)
   }
 })
+
+var hbs = require('hbs')
+hbs.registerHelper('dateFormat', require('handlebars-dateformat'))
+hbs.registerHelper('equal', require('handlebars-helper-equal'))
 
 var app = express()
 
@@ -31,6 +35,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'hbs')
 
+// app.use(cors())
 app.use(logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
