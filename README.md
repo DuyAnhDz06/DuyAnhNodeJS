@@ -1,2 +1,2 @@
 # DuyAnhNodeJS
-![image](https://user-images.githubusercontent.com/106655395/196848183-4fb81081-d553-47c8-83e7-398ea46ca8a9.png)
+![image](https://user-images.githubusercontent.com/106655395/196848276-04a39a9d-dfb5-415d-85ef-8b41f8d19440.png)
