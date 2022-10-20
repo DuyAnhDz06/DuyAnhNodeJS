@@ -1,15 +1,17 @@
 <div class="container col-md-10 text-center mt-5">
-  {{!-- api data will be displayed here --}}
+   <h1 class="text text-secondary">Fetch API from front-end with HTML + Javascript</h1>
+
+   {{!-- api data will be displayed here --}}
 </div>
 
 <script>
-  let url = "https://gch1001-1644.herokuapp.com/student/api"
-  fetch(url)
-  .then(response => response.json())
-  .then(data => renderTable(data))
+   let url = "http://localhost:3000/api"
+   fetch(url)
+      .then(response => response.json())
+      .then(data => renderTable(data))
 
-  function renderTable(data) {
-    var table = `<table class="table table-bordered">
+   function renderTable(data) {
+      var table = `<table class="table table-bordered">
                   <tr>
                       <th colspan="5" class="h2 text-primary">Student List</th>
                   </tr>
@@ -20,9 +22,8 @@
                       <th>Student grade</th>
                       <th>Student image</th>
                   </tr>`;
-
-    data.forEach((row) => {
-      table += `<tr>
+      data.forEach((row) => {
+         table += `<tr>
                     <td>${row.name}</td>
                     <td>${row.email} </td>
                     <td>${row.gender}  </td>
@@ -31,10 +32,9 @@
                       <img src="${row.image}" width="100" height="100">
                     </td>
                 </tr>`;
-    });
-    
-    table += `</table>`;
+      });
 
-    document.querySelector(".container").innerHTML = table;
-  }
-  </script>
+      table += `</table>`;
+      document.querySelector(".container").innerHTML = table;
+   }
+</script>

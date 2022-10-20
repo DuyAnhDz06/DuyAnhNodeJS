@@ -13,7 +13,7 @@ img, svg
 {
   border-radius: 30%;
 }
-/* .btn {
-  transition: none;
-  border-radius: 30%;
-} */
+.btn
+{
+  border-radius: 50%;
+}
